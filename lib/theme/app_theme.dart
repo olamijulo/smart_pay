@@ -18,11 +18,17 @@ class AppTheme {
           bodyMedium: AppTypography.bodyMedium,
           bodySmall: AppTypography.bodySmall,
         ),
+        textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+                backgroundColor: grey900,
+                disabledBackgroundColor: grey900.withOpacity(0.7),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0)))),
         inputDecorationTheme: InputDecorationTheme(
             fillColor: grey50,
             filled: true,
             hintStyle: AppTypography.bodyLarge.copyWith(color: grey400),
-            contentPadding: const EdgeInsets.all(5.0),
+            contentPadding: const EdgeInsets.all(20.0),
             enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.circular(16.0)),

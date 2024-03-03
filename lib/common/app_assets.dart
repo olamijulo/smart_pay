@@ -1,16 +1,15 @@
 class AppAsset {
   static const String pngPath = "assets/png/";
-  static const String broom = "${pngPath}broom.png";
+  static const String jpgPath = "assets/jpg/";
 
-  static const String svgPath = "assets/svg/";
-  static const String sent = "${svgPath}sent.svg";
-  static const String play = "${svgPath}play.svg";
-  static const String pause = "${svgPath}pause.svg";
-  static const String arrowDown = "${svgPath}arrow-down.svg";
-  static const String messgaeTranslate = "${svgPath}message-translate.svg";
-  static const String translate = "${svgPath}translate.svg";
-  static const String settings = "${svgPath}settings.svg";
-  static const String moon = "${svgPath}moon-01.svg";
-  static const String sun = "${svgPath}sun-01.svg";
-  static const String speaker = "${svgPath}speaker-01.svg";
+//JPG
+  static const String getStartedImageOne = "${jpgPath}IMG_5208.jpg";
+  static const String getStartedImageTwo = "${jpgPath}IMG_5209.jpg";
+
+//PNG
+  static const String arrowLeft = "${pngPath}arrow_left.png";
+  static const String hide = "${pngPath}hide.png";
+  static const String view = "${pngPath}view.png";
+    static const String googleIcon = "${pngPath}google_icon.png";
+  static const String appleIcon = "${pngPath}apple_icon.png";
 }
