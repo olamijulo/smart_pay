@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,33 +17,33 @@ class SignInView extends StatelessWidget {
       child: Scaffold(
         body: SafeArea(
             child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
                 child: SingleChildScrollView(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomBackButton(),
-                        SizedBox(
+                        const CustomBackButton(),
+                        const SizedBox(
                           height: 40.0,
                         ),
                         Text(
                           'Hi There! 👋',
                           style: context.textTheme.headlineSmall,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                         Text('Welcome back, Sign in to your account',
                             style: context.textTheme.bodyLarge),
-                        SizedBox(
+                        const SizedBox(
                           height: 50.0,
                         ),
                         TextFormField(
                           style: context.textTheme.bodyLarge!
                               .copyWith(fontWeight: FontWeight.w600),
-                          decoration: InputDecoration(hintText: 'Email'),
+                          decoration: const InputDecoration(hintText: 'Email'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15.0,
                         ),
                         TextFormField(
@@ -59,15 +58,19 @@ class SignInView extends StatelessWidget {
                                 color: grey500,
                               )),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25.0,
                         ),
-                        Text(
-                          'Forgot Password?',
-                          style: context.textTheme.bodyLarge!.copyWith(
-                              fontWeight: FontWeight.w600, color: primaryColor),
+                        GestureDetector(
+                          onTap: () => context.push('/password_recovery'),
+                          child: Text(
+                            'Forgot Password?',
+                            style: context.textTheme.bodyLarge!.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: primaryColor),
+                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25.0,
                         ),
                         SizedBox(
@@ -81,26 +84,26 @@ class SignInView extends StatelessWidget {
                                     color: white, fontWeight: FontWeight.w600),
                               )),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 35.0,
                         ),
                         Row(
                           children: [
-                            Expanded(child: Divider()),
-                            SizedBox(
+                            const Expanded(child: Divider()),
+                            const SizedBox(
                               width: 10.0,
                             ),
                             Text(
                               'OR',
                               style: context.textTheme.bodyMedium,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
-                            Expanded(child: Divider())
+                            const Expanded(child: Divider())
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 35.0,
                         ),
                         Row(
@@ -116,7 +119,7 @@ class SignInView extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 60.0,
                         ),
                         Row(
@@ -124,7 +127,7 @@ class SignInView extends StatelessWidget {
                           children: [
                             Text('Don’t have an account?',
                                 style: context.textTheme.bodyLarge),
-                            SizedBox(width: 5.0),
+                            const SizedBox(width: 5.0),
                             GestureDetector(
                               onTap: () => context.push('/sign_up'),
                               child: Text('Sign up',
