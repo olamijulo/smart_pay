@@ -27,7 +27,7 @@ class SignInViewModel extends ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  bool obcureText = false;
+  bool obcureText = true;
 
   Future<void> signIn(context) async {
     try {
