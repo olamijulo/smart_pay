@@ -26,5 +26,6 @@ class AppAsset {
   static const String userSpark = "${pngPath}user_spark.png";
   static const String emailIcon = "${pngPath}email_icon.png";
     static const String splashLogo = "${pngPath}splash_logo.png";
+    static const String appLogo = "${pngPath}launcher_icon.png";
 
 }

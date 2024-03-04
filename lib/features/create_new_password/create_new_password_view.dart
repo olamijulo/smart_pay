@@ -75,7 +75,7 @@ class CreateNewPasswordView extends StatelessWidget {
               height: 56.0,
               width: double.infinity,
               child: TextButton(
-                  onPressed: () => context.push('/about'),
+                  onPressed: () => context.push('/success_two'),
                   child: Text(
                     'Create new password',
                     style: context.textTheme.bodyLarge!

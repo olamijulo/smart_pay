@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:smart_pay/theme/palette.dart';
 import 'package:smart_pay/theme/app_colors.dart';
 import 'package:smart_pay/theme/app_typography.dart';
 
@@ -25,16 +24,26 @@ class AppTheme {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0)))),
         inputDecorationTheme: InputDecorationTheme(
-            fillColor: grey50,
-            filled: true,
-            hintStyle: AppTypography.bodyLarge.copyWith(color: grey400),
-            contentPadding: const EdgeInsets.all(20.0),
-            enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.transparent),
-                borderRadius: BorderRadius.circular(16.0)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: primaryColor400),
-                borderRadius: BorderRadius.circular(16.0))),
+          fillColor: grey50,
+          filled: true,
+          hintStyle: AppTypography.bodyLarge.copyWith(color: grey400),
+          contentPadding: const EdgeInsets.all(20.0),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.transparent),
+              borderRadius: BorderRadius.circular(16.0)),
+          enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.transparent),
+              borderRadius: BorderRadius.circular(16.0)),
+          disabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.transparent),
+              borderRadius: BorderRadius.circular(16.0)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: primaryColor400),
+              borderRadius: BorderRadius.circular(16.0)),
+          errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.transparent),
+              borderRadius: BorderRadius.circular(16.0)),
+        ),
         extensions: const [
           // Palette(
           //     textColor: black,

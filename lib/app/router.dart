@@ -3,13 +3,15 @@
 import 'package:go_router/go_router.dart';
 import 'package:smart_pay/features/about/about_view.dart';
 import 'package:smart_pay/features/create_new_password/create_new_password_view.dart';
+import 'package:smart_pay/features/dashboard/dashboard_view.dart';
 import 'package:smart_pay/features/get_started/get_started_view.dart';
-import 'package:smart_pay/features/onboarding_success.dart/onboarding_success_view.dart';
+import 'package:smart_pay/features/success/success_view.dart';
 import 'package:smart_pay/features/password_recovery.dart/password_recovery_view.dart';
 import 'package:smart_pay/features/set_pin/set_pin_view.dart';
 import 'package:smart_pay/features/sign_in/sign_in_view.dart';
 import 'package:smart_pay/features/sign_up/sign_up_view.dart';
 import 'package:smart_pay/features/splash/splash_view.dart';
+import 'package:smart_pay/features/success_two/success_two_view.dart';
 import 'package:smart_pay/features/verify_identity/verify_identity_view.dart';
 import 'package:smart_pay/features/verify_user/verify_user_view.dart';
 
@@ -36,8 +38,12 @@ final GoRouter router = GoRouter(routes: [
     builder: (context, state) => SetPinView(),
   ),
   GoRoute(
-    path: '/onboarding_success',
-    builder: (context, state) => OnboardingSuccessView(),
+    path: '/success',
+    builder: (context, state) => SuccessView(),
+  ),
+  GoRoute(
+    path: '/success_pin',
+    builder: (context, state) => SuccessTwoView(),
   ),
   GoRoute(
     path: '/about',
@@ -54,5 +60,9 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: '/create_new_password',
     builder: (context, state) => CreateNewPasswordView(),
+  ),
+    GoRoute(
+    path: '/dashboard',
+    builder: (context, state) => DashboardView(),
   )
 ]);

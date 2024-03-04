@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:smart_pay/app/locator.dart';
 import 'package:smart_pay/app/router.dart';
-import 'package:smart_pay/features/get_started/get_started_view.dart';
 import 'package:smart_pay/theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
+  setup();
 }
 
 class MyApp extends StatelessWidget {
@@ -20,5 +21,4 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
     );
   }
-
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smart_pay/extensions/context_extension.dart';
 import 'package:smart_pay/theme/app_colors.dart';
 
@@ -20,10 +21,13 @@ class GetStartedSection extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: Text(
-              'Skip',
-              style: context.textTheme.bodyLarge!.copyWith(
-                  fontWeight: FontWeight.w600, color: primaryColor400),
+            child: GestureDetector(
+              onTap: () => context.push('/sign_in'),
+              child: Text(
+                'Skip',
+                style: context.textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.w600, color: primaryColor400),
+              ),
             ),
           ),
           const SizedBox(

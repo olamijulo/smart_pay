@@ -1,15 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smart_pay/extensions/context_extension.dart';
+import 'package:smart_pay/features/verify_user/verify_user_view_model.dart';
 import 'package:smart_pay/theme/app_colors.dart';
 import 'package:smart_pay/widgets/custom_back_button.dart';
 
-class VerifyUserView extends StatelessWidget {
+class VerifyUserView extends ConsumerStatefulWidget {
   const VerifyUserView({Key? key}) : super(key: key);
 
   @override
+  ConsumerState<VerifyUserView> createState() => _VerifyUserViewState();
+}
+
+class _VerifyUserViewState extends ConsumerState<VerifyUserView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ref.read(verifyUserViewModelProvider.notifier).startTimer();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    ref.watch(verifyUserViewModelProvider).timer.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var verifyUserViewModel = ref.watch(verifyUserViewModelProvider);
+
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -37,6 +60,8 @@ class VerifyUserView extends StatelessWidget {
             ),
             Center(
               child: Pinput(
+                controller:
+                    ref.watch(verifyUserViewModelProvider).pinPutController,
                 defaultPinTheme: PinTheme(
                     height: 56.0,
                     width: 56.0,
@@ -52,10 +77,14 @@ class VerifyUserView extends StatelessWidget {
                         color: grey50,
                         border: Border.all(color: primaryColor400),
                         borderRadius: BorderRadius.circular(12.0))),
+                errorPinTheme: PinTheme(
+                    height: 56.0,
+                    width: 56.0,
+                    textStyle: context.textTheme.headlineSmall,
+                    decoration: BoxDecoration(
+                        color: grey50,
+                        borderRadius: BorderRadius.circular(12.0))),
                 length: 5,
-                validator: (s) {
-                  return s == '2222' ? null : 'Pin is incorrect';
-                },
                 pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                 showCursor: true,
                 onCompleted: (pin) => print(pin),
@@ -65,11 +94,24 @@ class VerifyUserView extends StatelessWidget {
               height: 50.0,
             ),
             Center(
-              child: Text(
-                'Resend Code 30 secs',
-                style: context.textTheme.bodyLarge!
-                    .copyWith(fontWeight: FontWeight.w700),
-              ),
+              child: verifyUserViewModel.seconds == 0
+                  ? GestureDetector(
+                      onTap: () {
+                        ref
+                            .read(verifyUserViewModelProvider.notifier)
+                            .resendToken(context);
+                      },
+                      child: Text(
+                        'Resend Code',
+                        style: context.textTheme.bodyLarge!
+                            .copyWith(fontWeight: FontWeight.w700),
+                      ),
+                    )
+                  : Text(
+                      'Resend Code ${verifyUserViewModel.seconds} secs',
+                      style: context.textTheme.bodyLarge!
+                          .copyWith(fontWeight: FontWeight.w700),
+                    ),
             ),
             const SizedBox(
               height: 50.0,
@@ -78,7 +120,11 @@ class VerifyUserView extends StatelessWidget {
               height: 56.0,
               width: double.infinity,
               child: TextButton(
-                  onPressed: () => context.push('/about'),
+                  onPressed: () {
+                    ref
+                        .read(verifyUserViewModelProvider.notifier)
+                        .verifyToken(context);
+                  },
                   child: Text(
                     'Confirm',
                     style: context.textTheme.bodyLarge!

@@ -4,8 +4,8 @@ import 'package:smart_pay/common/app_assets.dart';
 import 'package:smart_pay/extensions/context_extension.dart';
 import 'package:smart_pay/theme/app_colors.dart';
 
-class OnboardingSuccessView extends StatelessWidget {
-  const OnboardingSuccessView({Key? key}) : super(key: key);
+class SuccessTwoView extends StatelessWidget {
+  const SuccessTwoView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class OnboardingSuccessView extends StatelessWidget {
                 height: 15.0,
               ),
               Text(
-                'You’ve completed the onboarding, you can start using oue services.',
+                'You’ve successfully changed your password',
                 textAlign: TextAlign.center,
                 style: context.textTheme.bodyLarge,
               ),
